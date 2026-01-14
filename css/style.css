@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+    line-height: 1.5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 73px;
+    padding: 0 5%;
+    color: rgb(0, 0, 0);
+    background: transparent;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav li a {
+    display: block;
+    color: inherit;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(180deg, #032E15, #016630, #032E15);
+    background-size: 100% 200%;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 500px;
+    text-align: center;
+    transition: background-position 2.5s ease-out;
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.102);
+
+}
+
+.btn:hover {
+    animation: gradientShift 2.5s ease-out;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 0%;
+        transform: scale(1);
+    }
+
+    50% {
+        background-position: 0% 100%;
+        transform: scale(1.05);
+    }
+}
+
+/* Hero Section */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: calc(100vh - 73px);
+}
+
+.hero-image {
+    flex: 1 1 50%;
+    min-height: 300px;
+    position: relative;
+}
+
+.hero-image img {
+    position: absolute;
+    top: -53px;
+    left: 0;
+    width: 100%;
+    width: 1455.666748046875;
+    height: 794;
+    angle: 0 deg;
+    opacity: 1;
+    left: 0.17px;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+.overlay {
+    flex: 1 1 50%;
+    position: absolute;
+    top: 50;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 36px;
+    padding: 5%;
+}
+
+.badge {
+    background: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    padding: 4px 8px;
+    border-radius: 500px;
+    text-align: center;
+    transition: background-position 2.5s ease-out;
+}
+
+.hero-title {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 112.00000000000001%;
+    letter-spacing: -1.33px;
+
+}
+
+.col-3 {
+    display: flex;
+    gap: 24px;
+}
+
+.col-3 div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+}
+
+.col-3 div h1 {
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: start;
+    background: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.col-3 div p {
+    font-size: 22px;
+    line-height: 104%;
+    letter-spacing: 0px;
+    background: rgba(13, 84, 43, 1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: lowercase;
+}
+
+.overlay .btn {
+    display: block;
+    width: fit-content;
+
+}
+
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: calc(100vh - 73px);
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: calc(100vh - 73px);
+    padding: 5%;
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    width: 610px;
+    height: 672px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+
+.carousal {
+    position: relative;
+    width: 610px;
+    max-width: 100%;
+}
+
+.carousal .navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    pointer-events: none;
+    /* Allow clicks to pass through container */
+}
+
+.carousal .navigation button {
+    pointer-events: auto;
+    /* Re-enable clicks on buttons */
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    /* Hide text "Previous"/"Next" if relying on icons, or style text */
+    transition: background 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.carousal .navigation button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Add arrows using pseudo-elements */
+.carousal .navigation button[data-direction="prev"]::before {
+    content: "<";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.carousal .navigation button[data-direction="next"]::before {
+    content: ">";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dots span.active-dot {
+    background: white;
+    transform: scale(1.2);
+}
+
+.col-2 {
+    display: flex;
+    flex: 1 1 50%;
+    min-height: 300px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+    }
+
+    .left {
+        display: none
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .hero-image {
+        flex: none;
+        height: 70vh;
+        width: 100%;
+    }
+
+    .overlay {
+        flex: none;
+        width: 100%;
+        gap: 24px;
+        padding: 127px 24px;
+        align-items: start;
+        text-align: start;
+    }
+
+    .badge {
+
+        width: fit-content;
+        font-size: 12px;
+    }
+
+    .overlay .hero-title {
+        font-size: 48px;
+    }
+
+    .col-3 {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .col-3 div h1 {
+        font-size: 48px;
+    }
+
+    .col-3 div p {
+        font-size: 16px;
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .hamburger {
+        display: inherit;
+    }
+
+    .menu {
+        position: fixed;
+        left: -100%;
+        top: 73px;
+        gap: 0;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
+    .menu li {
+        margin: 16px 0;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
