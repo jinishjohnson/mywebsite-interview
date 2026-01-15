@@ -83,8 +83,20 @@
                 <div class="carousal">
                     <img src="/assets/images/newfrag.png" class="product-image" alt="">
                     <div class="navigation">
-                        <button data-direction="prev">Previous</button>
-                        <button data-direction="next">Next</button>
+                        <button class="prev" data-direction="prev" aria-label="Previous">
+                            <svg width="48px" height="48px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 12L6 12M6 12L11 17M6 12L11 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <button class="next" data-direction="next" aria-label="Next">
+                            <svg width="48px" height="48px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 12L18 12M18 12L13 17M18 12L13 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
                     </div>
                     <div class="dots">
                         <span data-index="0"></span>
@@ -93,12 +105,176 @@
                     </div>
                 </div>
 
-            </div>
-            <div class="col-2">
-                <h1>asd</h1>
+                <!-- end carousal -->
+                <!-- product description -->
+
+                <div class="col">
+                    <div class="product-desc-container">
+                        <h1 class="product-title">GTG Perfumes</h1>
+
+                        <div class="rating">
+                            <div class="stars">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="rgba(0, 201, 80, 1)" stroke="rgba(0, 201, 80, 1)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="rgba(0, 201, 80, 1)" stroke="rgba(0, 201, 80, 1)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="rgba(0, 201, 80, 1)" stroke="rgba(0, 201, 80, 1)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="rgba(0, 201, 80, 1)" stroke="rgba(0, 201, 80, 1)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="url(#half)" stroke="rgba(0, 201, 80, 1)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="half">
+                                            <stop offset="50%" stop-color="rgba(0, 201, 80, 1)" />
+                                            <stop offset="50%" stop-color="white" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg>
+                            </div>
+                            <span>4.5/5</span>
+                            <span>(9999+ reviews)</span>
+                        </div>
+                        <p class="product-description">Experience the timeless allure backed by modern artistry,
+                            captured in every bottle of our
+                            fragrance.
+                            Crafted for those who seek to elevate their essence with purpose and sophistication.</p>
+                        <!-- accordin -->
+                        <div class="product-accordin">
+                            <h1>Most Popular</h1>
+                            <div class="accordion-item">
+                                <button class="accordion-header">
+                                    <div
+                                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <input type="radio" name="accordion-group" id="brand-desc-check">
+                                            <span>Single Subscription</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 0px;">
+                                            <span>$99.99</span>
+                                            <span
+                                                style="text-decoration: line-through; color: #999; font-weight: 200;">$129.99</span>
+                                        </div>
+                                    </div>
+
+                                </button>
+                                <div class="accordion-content">
+                                    <div class="inner-container">
+                                        <hr
+                                            style="display: flex; justify-content: center; align-items: center; width: 92%; margin: 0 auto;">
+                                        <p>Choose a Fragrance</p>
+                                        <div class="fragrance-container">
+                                            <label class="fragrance-item selected">
+                                                <div class="best-seller-badge">BEST-SELLER</div>
+                                                <div class="fragrance-header">
+                                                    <input class="fragrance-input" type="radio" name="fragrance"
+                                                        id="fragrance1" checked>
+                                                    <span class="fragrance-name">Original</span>
+                                                </div>
+                                                <img src="/assets/images/Image_fx (14)-Photoroom 1 (1).png"
+                                                    alt="Original">
+                                            </label>
+                                            <label class="fragrance-item">
+                                                <div class="fragrance-header">
+                                                    <input class="fragrance-input" type="radio" name="fragrance"
+                                                        id="fragrance2">
+                                                    <span class="fragrance-name">Lily</span>
+                                                </div>
+                                                <img src="/assets/images/Image_fx (14)-Photoroom 1.png" alt="Lily">
+                                            </label>
+                                            <label class="fragrance-item">
+                                                <div class="fragrance-header">
+                                                    <input class="fragrance-input" type="radio" name="fragrance"
+                                                        id="fragrance3">
+                                                    <span class="fragrance-name">Floral</span>
+                                                </div>
+                                                <img src="/assets/images/Image_fx (14)-Photoroom 1@2x.png" alt="Floral">
+                                            </label>
+                                        </div>
+                                        <p class="combo-title">what's included :</p>
+                                        <!-- cardset-1 -->
+                                        <div class="item-combo">
+                                            <div class="combo-item">
+                                                <div class="combo-item-left">
+                                                    <p class="combo-item-text">Every 30 days</p>
+                                                    <img class="combo-item-img"
+                                                        src="/assets/images/Image_fx (14)-Photoroom 1 (1).png" alt="">
+                                                </div>
+                                                <!-- cardset-2 -->
+                                                <div class="combo-item-right">
+                                                    <p class="combo-item-text">One Time<span>(Free)</span></p>
+                                                    <div class="combo-item-img-container">
+                                                        <img class="combo-item-img"
+                                                            src="/assets/images/Image_fx (14)-Photoroom 1 (1).png"
+                                                            alt="">
+                                                        <img class="combo-item-img"
+                                                            src="/assets/images/Image_fx (14)-Photoroom 1 (1).png"
+                                                            alt="">
+                                                        <img class="combo-item-img"
+                                                            src="/assets/images/Image_fx (14)-Photoroom 1 (1).png"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <input type="radio" name="accordion-group" id="ingredients-check">
+                                        <span>Monthly Subscription</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span>$99.9</span>
+                                        <span
+                                            style="text-decoration: line-through; color: #999; font-weight:200;">$129.99</span>
+                                    </div>
+                                </div>
+
+                            </button>
+                            <div class="accordion-content">
+                                <div class="inner-container">
+                                    <p>Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool,
+                                        Citronellol, Geraniol, Coumarin, Citral, Farnesol.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- end product description -->
     <!-- end product section -->
 </body>
 <script src="./js/script.js"></script>

@@ -86,7 +86,6 @@ const updateCarousel = (index) => {
     currentIndex = index;
 
     // Update Image
-    // Simple fade effect could be added here
     carouselImage.style.opacity = 0;
     setTimeout(() => {
         carouselImage.src = images[currentIndex];
@@ -113,3 +112,97 @@ if (carouselImage) {
     carouselImage.style.transition = "opacity 0.3s ease";
     updateCarousel(0);
 }
+
+// star rating
+const stars = document.querySelectorAll(".stars svg");
+const ratingText = document.querySelector(".rating span");
+
+let currentRating = 4.5; // Default matches HTML
+
+stars.forEach((star, index) => {
+    star.addEventListener("click", (e) => {
+        const rect = star.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const width = rect.width;
+
+        if (x < width / 2) {
+            currentRating = index + 0.5;
+        } else {
+            currentRating = index + 1;
+        }
+        updateRating();
+    });
+});
+
+const updateRating = () => {
+    stars.forEach((star, index) => {
+        star.style.fill = "none";
+        star.style.stroke = "rgba(0, 201, 80, 1)";
+
+        if (currentRating >= index + 1) {
+            star.style.fill = "rgba(0, 201, 80, 1)";
+        } else if (currentRating >= index + 0.5) {
+            star.style.fill = "url(#half)";
+        }
+    });
+    ratingText.textContent = `${currentRating}/5`;
+};
+
+// Accordion Logic
+const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+accordionHeaders.forEach(header => {
+    header.addEventListener("click", (e) => {
+        const item = header.parentElement;
+        const content = item.querySelector(".accordion-content");
+
+        // If it's a click on the radio input directly
+        if (e.target.type === 'radio') {
+            document.querySelectorAll(".accordion-item").forEach(acc => {
+                if (acc !== item) {
+                    acc.classList.remove("active");
+                    acc.querySelector(".accordion-content").style.maxHeight = null;
+                }
+            });
+
+            item.classList.add("active");
+            content.style.maxHeight = content.scrollHeight + 100 + "px";
+
+            e.stopPropagation();
+            return;
+        }
+
+        // Standard Accordion Toggle
+        const isActive = item.classList.contains("active");
+        const radio = header.querySelector('input[type="radio"]');
+
+        document.querySelectorAll(".accordion-item").forEach(acc => {
+            acc.classList.remove("active");
+            acc.querySelector(".accordion-content").style.maxHeight = null;
+        });
+
+        if (!isActive) {
+            item.classList.add("active");
+            content.style.maxHeight = content.scrollHeight + 100 + "px";
+            if (radio) radio.checked = true;
+        } else {
+            item.classList.remove("active");
+            content.style.maxHeight = null;
+            if (radio) radio.checked = false;
+        }
+    });
+});
+
+// Default Open (on load) - Moved outside the loop for cleaner execution
+window.addEventListener('load', () => {
+    const firstAcc = document.querySelector(".accordion-item");
+    if (firstAcc) {
+        const header = firstAcc.querySelector(".accordion-header");
+        const radio = header.querySelector('input[type="radio"]');
+        const content = firstAcc.querySelector(".accordion-content");
+
+        firstAcc.classList.add("active");
+        if (content) content.style.maxHeight = content.scrollHeight + 100 + "px";
+        if (radio) radio.checked = true;
+    }
+});
