@@ -368,7 +368,7 @@ nav li a {
     cursor: pointer;
     font-family: inherit;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 300;
     color: #333;
     text-align: left;
 }
@@ -392,6 +392,7 @@ nav li a {
     font-size: 16px;
     color: #666;
     line-height: 1.6;
+    margin: 0px 24px;
 }
 
 .col-2 {
@@ -406,6 +407,7 @@ nav li a {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
 }
 
 .product-title {
@@ -497,10 +499,9 @@ nav li a {
 
 .fragrance-container {
     display: flex;
-    flex-wrap: wrap;
-    /* Allow wrapping on small screens */
+    flex-wrap: nowrap;
     gap: 16px;
-    padding: 16px 0;
+    width: 404.57px;
 }
 
 .fragrance-item {
@@ -512,8 +513,7 @@ nav li a {
     border-radius: 12px;
     padding: 16px;
     flex: 1;
-    /* Distribute space */
-    min-width: 140px;
+    min-width: 127.11px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -573,12 +573,24 @@ nav li a {
 }
 
 .fragrance-item img {
-    width: 70px;
-    height: 120px;
+    width: 54.876609802246094px;
+    height: 94px;
     object-fit: contain;
     mix-blend-mode: multiply;
     border: none;
     border-radius: 0;
+}
+
+.fragrance-title {
+    font-family: Inter;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: start;
+    color: rgba(3, 46, 21, 1);
+    padding: 15px 0px 18px;
+
 }
 
 
@@ -588,7 +600,7 @@ nav li a {
     border-radius: 8px 0px 8px 0px;
     background: linear-gradient(180deg, #032E15 0%, #016630 100%);
     color: white;
-    font-size: 10px;
+    font-size: 7.37px;
     font-weight: 700;
     padding: 2px 8px;
     z-index: 10;
@@ -596,6 +608,25 @@ nav li a {
     position: absolute;
     top: -10px;
     right: 10px;
+    animation: slideIn 0.5s ease-in-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-name: slideIn;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .item-combo {
