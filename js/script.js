@@ -79,25 +79,21 @@ const images = [
 let currentIndex = 0;
 
 const updateCarousel = (index) => {
-    // Wrap around index
     if (index < 0) index = images.length - 1;
     if (index >= images.length) index = 0;
 
     currentIndex = index;
 
-    // Update Image
     carouselImage.style.opacity = 0;
     setTimeout(() => {
         carouselImage.src = images[currentIndex];
         carouselImage.style.opacity = 1;
-    }, 200); // Short delay for fade
+    }, 200);
 
-    // Update Dots
     dots.forEach(dot => dot.classList.remove("active-dot"));
     if (dots[currentIndex]) dots[currentIndex].classList.add("active-dot");
 };
 
-// Event Listeners
 if (prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => updateCarousel(currentIndex - 1));
     nextBtn.addEventListener("click", () => updateCarousel(currentIndex + 1));
@@ -227,6 +223,17 @@ if (galleryContainer) {
         </div>
     `).join('');
 }
+
+// Scroll Animation Observer
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // Lightbox Logic
 const initLightbox = () => {

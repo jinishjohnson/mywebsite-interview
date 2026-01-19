@@ -355,7 +355,7 @@ nav li a {
 
 /* Accordion Styles */
 .product-accordin {
-    width: 609.97px;
+    max-width: 609.97px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -371,7 +371,7 @@ nav li a {
     border-radius: 12px;
     padding: 0 24px;
     background: white;
-    width: 609.97px !important;
+    max-width: 609.97px;
 }
 
 .product-accordin .accordion-item:nth-of-type(1) {
@@ -1100,7 +1100,7 @@ body.lightbox-open {
     width: 25px;
     height: 3px;
     background-color: #333;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 
 /* Mobile Menu Styles */
@@ -1123,22 +1123,38 @@ body.lightbox-open {
 
     .menu {
         position: fixed;
-        left: -100%;
+        right: -100%;
         top: 73px;
         gap: 0;
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+        background: rgba(43, 69, 2, 0.959);
+        backdrop-filter: blur(0.8px);
+        -webkit-backdrop-filter: blur(0.8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 2.2);
         width: 100%;
-        text-align: center;
-        transition: 0.3s;
+        height: 100vh;
+        text-align: start;
+        transition: 0.8s;
+        color: var(--white-color);
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         z-index: 999;
+        font-size: 55px;
+        font-weight: 700;
+        overflow: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        -webkit-scrollbar: none;
+        padding: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
     }
 
     .menu.active {
-        left: 0;
+        right: 0;
     }
 
     .menu li {
@@ -1246,12 +1262,13 @@ body.lightbox-open {
         width: 100%;
     }
 
-    .accordion-items {
-        width: 100%;
+    .accordion-item {
+        max-width: 100%;
     }
 
     .accordion-header {
-        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
     }
 
     .accordion-items-container {
@@ -1259,8 +1276,9 @@ body.lightbox-open {
     }
 
     .accordion-item {
-        width: 100%;
+        max-width: 100% !important;
     }
+
 
     .accordin-header-container {
         width: 100%;
@@ -1274,6 +1292,14 @@ body.lightbox-open {
     .accordin-header-right {
         font-size: 14px;
         /* Slightly smaller text */
+    }
+
+    .product-accordin .accordion-item:nth-of-type(1) {
+        max-width: 100%;
+    }
+
+    .cta-btn {
+        max-width: 100%;
     }
 
 
