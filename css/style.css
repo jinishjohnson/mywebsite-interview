@@ -244,7 +244,6 @@ nav li a {
     padding: 0 20px;
     pointer-events: none;
     z-index: 2;
-    /* Ensure above image */
 }
 
 .carousal .navigation button {
@@ -1038,6 +1037,9 @@ body.lightbox-open {
 
     .container {
         flex-direction: column;
+        height: auto;
+        width: 100%;
+        min-height: calc(60vh - 73px);
     }
 
     .hero-image {
@@ -1046,11 +1048,16 @@ body.lightbox-open {
         width: 100%;
     }
 
+    .hero-image img {
+        height: 100%;
+        width: 100%;
+    }
+
     .overlay {
         flex: none;
         width: 100%;
         gap: 24px;
-        padding: 127px 24px;
+        padding: 39px 6px;
         align-items: start;
         text-align: start;
     }
@@ -1152,13 +1159,20 @@ body.lightbox-open {
 
     /* Product Section Responsiveness */
     .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: calc(100vh - 73px);
+        padding: 5%;
+        gap: 24px;
         flex-direction: column;
-        padding: 5% 24px;
-        gap: 32px;
+        align-items: center;
+        justify-content: center;
     }
 
     .col-2 {
-        flex: none;
+        display: flex;
+        flex-direction: column;
         width: 100%;
         min-height: auto;
         gap: 16px;
@@ -1167,14 +1181,19 @@ body.lightbox-open {
 
     .carousal {
         width: 100%;
+        height: auto;
     }
 
     .product-image {
         width: 100%;
         height: auto;
-        /* Maintain aspect ratio */
-        min-height: 300px;
+        min-height: 50vh;
         object-fit: cover;
+    }
+
+    .carousal .navigation {
+        bottom: 50%;
+        left: 0;
     }
 
     .carousal .navigation button {
@@ -1185,6 +1204,10 @@ body.lightbox-open {
     .carousal .navigation button svg {
         width: 24px;
         height: 24px;
+    }
+
+    .dots {
+        bottom: 26%;
     }
 
     .product-title {
@@ -1201,4 +1224,58 @@ body.lightbox-open {
         justify-content: flex-start;
         align-self: flex-start;
     }
+
+    .product {
+        width: 100%;
+    }
+
+    .product-desc-container {
+        width: 100%;
+    }
+
+    .col {
+        width: 100%;
+    }
+
+
+    .product-accordin {
+        width: 100%;
+    }
+
+    .product-accordin h1 {
+        width: 100%;
+    }
+
+    .accordion-items {
+        width: 100%;
+    }
+
+    .accordion-header {
+        width: 100%;
+    }
+
+    .accordion-items-container {
+        width: 100%;
+    }
+
+    .accordion-item {
+        width: 100%;
+    }
+
+    .accordin-header-container {
+        width: 100%;
+        flex-wrap: wrap;
+        /* Allow wrapping */
+        gap: 8px;
+        /* Add gap for wrapped items */
+    }
+
+    .accordin-header-left,
+    .accordin-header-right {
+        font-size: 14px;
+        /* Slightly smaller text */
+    }
+
+
+
 }
