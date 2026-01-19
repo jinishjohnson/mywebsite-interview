@@ -206,3 +206,112 @@ window.addEventListener('load', () => {
         if (radio) radio.checked = true;
     }
 });
+
+const galleryImages = [
+    "/assets/images/gallery/ga1 (1).jpg",
+    "/assets/images/gallery/ga1 (2).jpg",
+    "/assets/images/gallery/ga1 (3).jpg",
+    "/assets/images/gallery/ga1 (4).jpg",
+    "/assets/images/gallery/ga1 (1).jpg",
+    "/assets/images/gallery/ga1 (2).jpg",
+    "/assets/images/gallery/ga1 (3).jpg",
+    "/assets/images/gallery/ga1 (4).jpg"
+];
+
+const galleryContainer = document.querySelector(".gallery");
+
+if (galleryContainer) {
+    galleryContainer.innerHTML = galleryImages.map((image, index) => `
+        <div class="gallery-item" data-index="${index}">
+            <img src="${image}" alt="Gallery Image ${index + 1}">
+        </div>
+    `).join('');
+}
+
+// Lightbox Logic
+const initLightbox = () => {
+    const lightboxValue = `
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-btn lightbox-close" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <button class="lightbox-btn lightbox-prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="lightbox-content">
+                <img src="" alt="Lightbox Preview" class="lightbox-img">
+            </div>
+            <button class="lightbox-btn lightbox-next" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', lightboxValue);
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    let currentLightboxIndex = 0;
+
+    const openLightbox = (index) => {
+        currentLightboxIndex = index;
+        lightboxImg.src = galleryImages[currentLightboxIndex];
+        lightbox.classList.add('active');
+        document.body.classList.add('lightbox-open');
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.classList.remove('lightbox-open');
+    };
+
+    const showNext = () => {
+        currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentLightboxIndex];
+    };
+
+    const showPrev = () => {
+        currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentLightboxIndex];
+    };
+
+    // Event Listeners
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => openLightbox(index));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrev();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNext();
+    });
+
+    // Close on overlay click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+    });
+};
+
+// Initialize Lightbox after gallery rendered
+if (galleryContainer) {
+    initLightbox();
+}
