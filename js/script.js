@@ -204,14 +204,14 @@ window.addEventListener('load', () => {
 });
 
 const galleryImages = [
-    "/assets/images/gallery/ga1 (1).jpg",
-    "/assets/images/gallery/ga1 (2).jpg",
-    "/assets/images/gallery/ga1 (3).jpg",
-    "/assets/images/gallery/ga1 (4).jpg",
-    "/assets/images/gallery/ga1 (1).jpg",
-    "/assets/images/gallery/ga1 (2).jpg",
-    "/assets/images/gallery/ga1 (3).jpg",
-    "/assets/images/gallery/ga1 (4).jpg"
+    "./assets/images/gallery/ga1 (1).jpg",
+    "./assets/images/gallery/ga1 (2).jpg",
+    "./assets/images/gallery/ga1 (3).jpg",
+    "./assets/images/gallery/ga1 (4).jpg",
+    "./assets/images/gallery/ga1 (1).jpg",
+    "./assets/images/gallery/ga1 (2).jpg",
+    "./assets/images/gallery/ga1 (3).jpg",
+    "./assets/images/gallery/ga1 (4).jpg"
 ];
 
 const galleryContainer = document.querySelector(".gallery");
