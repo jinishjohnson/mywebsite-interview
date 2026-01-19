@@ -970,7 +970,7 @@ body.lightbox-open {
     display: block;
     width: 12px;
     height: 12px;
-    background-image: url('./assets/images/dot.png');
+    background-image: url('../assets/images/dot.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
